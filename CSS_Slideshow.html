@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<!--[if !mso]><!-- -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<!--<![endif]-->
+	<title>Pure CSS animated slideshow in email | eROI</title>
+	
+	<style type="text/css">
+	
+	/* Google Font */
+	@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700);
+		
+		/* Client-specific Styles */
+			body{width:100% !important; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; margin:0; padding:0;font-family: Trebuchet MS, Trebuchet, Lucida Grande, sans-serif;}
+			/* Prevent Webkit and Windows Mobile platforms from changing default font sizes.*/ 
+			.ExternalClass {width:100%;} /* Force Hotmail to display emails at full width */  
+			.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;}
+			/* End reset */
+
+			/* Some sensible defaults for images
+			Bring inline: Yes. */
+			img {outline:none; text-decoration:none; display:block; -ms-interpolation-mode: bicubic;} 
+			a img {border:none;} 
+
+			/* Yahoo paragraph fix
+			Bring inline: Yes. */
+			p {margin: 1em 0;}
+
+			/* Outlook 07, 10 Padding issue fix
+			Bring inline: No.*/
+			table td {border-collapse: collapse;}
+
+		    /* Remove spacing around Outlook 07, 10 tables
+		    Bring inline: Yes */
+		    table { border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; }
+				
+		/***************************************************
+		****************************************************
+		ANIMATIONS
+		****************************************************
+		***************************************************/
+		@media screen and (-webkit-min-device-pixel-ratio: 0) {
+			.fadeIn {
+				position: absolute;
+				-webkit-animation:fadeIn 15s infinite;
+				-moz-animation:fadeIn 15s infinite;
+				animation:fadeIn 15s infinite;
+				opacity: 0;
+			}
+
+			@keyframes fadeIn {
+				25% { opacity: 1; }
+				75% { opacity: 0; }
+			}
+			-moz-keyframes fadeIn {
+				25% { opacity: 1; }
+				75% { opacity: 0; }
+			}
+			@-webkit-keyframes fadeIn {
+				25% { opacity: 1; }
+				75% { opacity: 0; }
+			}
+
+			#tableAnimate1 {
+				-webkit-animation-delay: 0s;
+				-moz-animation-delay: 0s;
+				animation-delay: 0s;
+			}
+
+			#tableAnimate2 {
+				-webkit-animation-delay: 5s;
+				-moz-animation-delay: 5s;
+				animation-delay: 5s;
+			}
+
+			#tableAnimate3 {
+				-webkit-animation-delay: 10s;
+				-moz-animation-delay: 10s;
+				animation-delay: 10s;
+			}
+		}
+		
+		/***************************************************
+		****************************************************
+		MOBILE TARGETING
+		****************************************************
+		***************************************************/
+		@media screen and (max-width: 480px), screen and (max-device-width: 480px) {
+					body[yahoo] {width:100% !important; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; margin:0; padding:0;font-family: Roboto Slab, 'Roboto Slab', Trebuchet MS, Trebuchet, Lucida Grande, sans-serif;}
+					body[yahoo] .deviceWidth {width:100%!important; padding:0!important; float:none!important;}
+					/* Forces fullwidth in Gmail App for Android */
+					body[yahoo] .gmailFix {width:100%!important; min-width: 320px!important; padding:0!important; float:none!important;}
+					/* Remove background on mobile */
+		  		  	body[yahoo] .mobile-bg {background:transparent!important;}
+					/* Replace HTML Entity with background image to avoid emoji */
+					body[yahoo] .arrow { display: none;}
+					body[yahoo] .arrow-bg { background:url(http://eroi.s3.amazonaws.com/modular-template/arrow.jpg) no-repeat left bottom; width:43px;}		
+					/* Adjust Headline sizing */
+					body[yahoo] .headline {padding: 0 10px!important;}		
+					/* Force height of wrapper table */
+					body[yahoo] .wrapper-table {height:550px!important;}					
+			}	
+		  
+			@media screen {
+				.roboto {font-family: Roboto Slab, 'Roboto Slab', Trebuchet MS, Trebuchet, Lucida Grande, sans-serif;} 
+			} 
+	</style>
+</head>
+<body yahoo="fix" style="-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;margin: 0;padding: 0;width: 100%;">
+<table width="100%" align="center" cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;margin: 0 auto;padding: 0;line-height: 100%;background: url(http://eroi.s3.amazonaws.com/modular-template/header-bg.jpg) no-repeat top center;">
+	<tr>
+		<td valign="top">
+			<table width="550" align="center" cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;margin: 0 auto;padding: 0;line-height: 100%; border-top: 7px solid #FFFF00" class="deviceWidth">
+				<tr>
+					<td valign="top" style="line-height: 10px; height: 10px;"><img src="http://eroi.s3.amazonaws.com/modular-template/spacer.gif" width="550" height="10" style="min-width: 550px; display: block; outline:none; text-decoration:none; border:none;" class="gmailFix"></td>
+				</tr>
+				<tr>
+					<td valign="top">
+			            <table width="100%" cellpadding="0" cellspacing="0" border="0" align="left" class="deviceWidth">
+			              <tr>
+			                <td valign="top" width="39" style="border: 0;" align="left"><a href="http://eroi.com/" target="_blank" alias="logo" style="border:0; text-decoration: none;"><img src="http://eroi.s3.amazonaws.com/modular-template/eroi-logo.jpg" width="39" height="34" alt="eROI" style="outline: none;text-decoration: none;display: block;-ms-interpolation-mode: bicubic;border: none;color:#000001;font-weight: bold;font-size:10px;font-family:Arial, sans-serif;" border="0"></a></td>
+							<td valign="top" width="511" class="mobile-hide"></td>
+			              </tr>
+			            </table>
+					</td>
+				</tr>
+				<tr>
+					<td valign="top" height="15"></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+<table width="100%" align="center" cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;margin: 0 auto;padding: 0;line-height: 100%;">
+	<tr>
+		<td valign="top">
+			<table width="100%" align="center" cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;margin: 0 auto;padding: 0;line-height: 100%;">
+				<tr>
+					<td valign="top">
+						<table width="500" align="center" cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;margin: 0 auto;padding: 0;line-height: 100%;position:relative;min-height:500px;" class="deviceWidth wrapper-table">
+							<tr>
+								<td valign="top">
+									
+									<!-- First Slide in Slideshow -->
+									<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" class="deviceWidth fadeIn" id="tableAnimate1" style="min-height:500px" bgcolor="#FFFFFF">
+										<tr>
+											<td valign="top" height="25"></td>
+										</tr>
+										<tr>
+											<td valign="top" class="roboto headline" style="font-weight: 700;color:#777777;text-align:center;font-size:40px;line-height:42px;border-collapse: collapse;">Meet the Dogs of eROI</td>
+										</tr>
+										<tr>
+											<td valign="top" height="35"></td>
+										</tr>
+			  			              	<tr>
+			  			                	<td valign="top" align="center"><img src="http://eroi.s3.amazonaws.com/blog/css-animations/dogs.jpg" width="300" height="300" style="outline: none;text-decoration: none;display: block;-ms-interpolation-mode: bicubic;border: none;" border="0"></td>
+			  							</tr>
+										<tr>
+											<td valign="top" height="25"></td>
+										</tr>
+										<tr>
+											<td valign="top" class="roboto" style="color:#000000;text-align:center;font-size:14px;line-height:18px;border-collapse: collapse;">Performance Lead Zoe, Creative Director Hunter, Digital Strategist Lucy, Campaign Support Dimitri, Staff Accountant Snoopy, Senior Strategist Nalu</td>
+										</tr>
+										
+									</table>
+									<!-- /First Slide in Slideshow -->
+									
+									<!-- Second Slide in Slideshow -->
+									<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" class="deviceWidth fadeIn" id="tableAnimate2" style="min-height:500px" bgcolor="#FFFFFF">
+										<tr>
+											<td valign="top" height="25"></td>
+										</tr>
+										<tr>
+											<td valign="top" class="roboto headline" style="font-weight: 700;color:#777777;text-align:center;font-size:40px;line-height:42px;border-collapse: collapse;">Meet the Cats of eROI</td>
+										</tr>
+										<tr>
+											<td valign="top" height="35"></td>
+										</tr>
+			  			              	<tr>
+			  			                	<td valign="top" align="center"><img src="http://eroi.s3.amazonaws.com/blog/css-animations/cats.jpg" width="300" height="300" style="outline: none;text-decoration: none;display: block;-ms-interpolation-mode: bicubic;border: none;" border="0"></td>
+			  							</tr>
+										<tr>
+											<td valign="top" height="25"></td>
+										</tr>
+										<tr>
+											<td valign="top" class="roboto" style="color:#000000;text-align:center;font-size:14px;line-height:18px;border-collapse: collapse;">Senior Developer Minnie, Visual Designer Dagmare, Copywriter Osh&omacr;, Account Managers Egg and Nog, Lead Developer Kingsford</td>
+										</tr>
+									</table>
+									<!-- /Second Slide in Slideshow -->
+									
+									<!-- Third Slide in Slideshow -->
+									<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" class="deviceWidth fadeIn" id="tableAnimate3" style="min-height:500px" bgcolor="#FFFFFF">
+										<tr>
+											<td valign="top" height="25"></td>
+										</tr>
+										<tr>
+											<td valign="top" class="roboto headline" style="font-weight: 700;color:#777777;text-align:center;font-size:40px;line-height:42px;border-collapse: collapse;">Meet the Goats of eROI</td>
+										</tr>
+										<tr>
+											<td valign="top" height="35"></td>
+										</tr>
+			  			              	<tr>
+			  			                	<td valign="top" align="center"><img src="http://eroi.s3.amazonaws.com/blog/css-animations/goats.jpg" width="300" height="300" style="outline: none;text-decoration: none;display: block;-ms-interpolation-mode: bicubic;border: none;" border="0"></td>
+			  							</tr>
+										<tr>
+											<td valign="top" height="25"></td>
+										</tr>
+										<tr>
+											<td valign="top" class="roboto" style="color:#000000;text-align:center;font-size:14px;line-height:18px;border-collapse: collapse;">Visual Designers Grover and Woodrow</td>
+										</tr>
+									</table>
+									<!-- /Third Slide in Slideshow -->
+									
+								</td>
+							</tr>			
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td valign="top" height="25"></td>
+				</tr>
+				<tr>
+					<td valign="top">
+						<table width="500" align="center" cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;margin: 0 auto;padding: 0;line-height: 100%;" class="deviceWidth">
+							<tr>
+								<td valign="top" align="center">
+									<table cellpadding="0" cellspacing="0" border="0" style="border:2px solid #000001" class="cta">
+										<tr>
+											<td valign="top" width="20"></td>
+											<td valign="middle" class="roboto" height="34" align="left" style="font-size:14px;color:#000001;text-align:center;font-weight:700;border-collapse: collapse;text-align:right;"><a href="https://instagram.com/eroipdx/" style="color:#000001; text-decoration:none;" alias="cta" target="_blank"><span style="color:#000001;">SEE MORE</span> <span class="arrow">&#10142;</span></a></td>
+											<td valign="top" width="14" class="arrow-bg"></td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td valign="top" height="35"></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+<table width="100%" align="center" cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;margin: 0 auto;padding: 0;line-height: 100%; background: url(http://eroi.s3.amazonaws.com/modular-template/footer-bg.jpg) no-repeat bottom center;" class="mobile-bg">
+	<tr>
+		<td valign="top">
+			<table width="550" align="center" cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;margin: 0 auto;padding: 0;line-height: 100%;" class="deviceWidth">
+				<tr>
+					<td valign="top" height="25"><!-- Make sure for all marketing emails you include a physical address and an option for subscribers to unsubscribe. Best practice is to set up a profile center where subscribers can opt-down instead of completely opt-out. --></td>
+				</tr>
+				<tr>
+					<td valign="top"><img src="http://eroi.s3.amazonaws.com/modular-template/footer.jpg" style="display: block; outline:none; text-decoration:none; border:none;" class="deviceWidth"></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+</body> 
+</html>
